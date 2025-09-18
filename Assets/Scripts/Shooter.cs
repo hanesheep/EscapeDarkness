@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Shooter : MonoBehaviour
 {
-    PlayerController playerCnt; //引用
+    PlayerController playerCnt; //コンポーネント引用
     public GameObject billPrefab; //Instantiate生成する対象オブジェクト
     public float shootSpeed; //お札の速度
     public float shootDelay; //発射間隔
