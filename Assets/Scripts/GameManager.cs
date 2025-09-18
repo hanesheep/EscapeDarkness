@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
     public static int key3;
     public static bool[] keypickedState;  //鍵の取得状況
 
-    public static int bill;
+    public static int bill = 10;
     public static bool[] itemPickedState; //アイテムの取得状況
 
     public static bool hasSpotLight;  //スポットライトを持っているかどうか
