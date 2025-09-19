@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     public static int key1;
     public static int key2;
     public static int key3;
-    public static bool[] keypickedState = { false, false, false };  //Œ®‚Ìæ“¾ó‹µ
+    public static bool[] keysPickedState = { false, false, false };  //Œ®‚Ìæ“¾ó‹µ
 
     public static int bill = 10;
     public static bool[] itemPickedState = { false, false, false, false, false, }; //ƒAƒCƒeƒ€‚Ìæ“¾ó‹µ
