@@ -52,7 +52,7 @@ public class TalkController : MonoBehaviour
             nameText.text = message.msgArray[i].name;
             messageText.text = message.msgArray[i].message;
 
-            yield return new WaitForSecondsRealtime(0.1f); //0.1秒待つ
+            yield return new WaitForSecondsRealtime(0.1f); //0.1秒待つ(ゲーム進行をwaitする)
 
             while (!Input.GetKeyDown(KeyCode.E))　//Eキーが押されるまで
             {
