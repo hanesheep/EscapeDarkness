@@ -49,8 +49,10 @@ public class TalkController : MonoBehaviour
         //対象としたScriptableObject（変数Message）が扱っている配列msgArrayの数だけ繰り返す
         for (int i = 0 ; i < message.msgArray.Length; i++)
         {
-            nameText.text = message.msgArray[i]name;
+            nameText.text = message.msgArray[i].name;
             messageText.text = message.msgArray[i].message;
+
+            yield return new WaitForSecondsRealtime(0.1f); //0.1秒待つ
 
             while (!Input.GetKeyDown(KeyCode.E))　//Eキーが押されるまで
             {
@@ -64,8 +66,8 @@ public class TalkController : MonoBehaviour
     {
         talkPanel.SetActive (false); //パネルを非表示
         GameManager.gameState = GameState.playing;　//ゲームステータスをPlayingに戻す
-        isTalk = false;
-        Time.timeScale = 1.0f;
+        isTalk = false;　//トーク中を解除
+        Time.timeScale = 1.0f;　//ゲームスピードをもとに戻す
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
