@@ -25,6 +25,8 @@ public class Shooter : MonoBehaviour
     {
         if (inAttack || GameManager.bill <= 0) return;
 
+        SoundManager.instance.SEPlay(SEType.Shoot); //‚¨ŽD‚ð“Š‚°‚é‰¹
+
         GameManager.bill--; //‚¨ŽD‚Ì”‚ðŒ¸‚ç‚·
         inAttack = true;@@//UŒ‚’†
 

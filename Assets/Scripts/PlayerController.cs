@@ -23,6 +23,9 @@ public class PlayerController : MonoBehaviour
 
     bool isViartual; //VirtualPadを触っているかどうかの判断フラグ
 
+    //足音判定
+    float footstepInterval = 0.3f; //足音間隔
+    float footstepTimer; //時間計測
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -47,6 +50,9 @@ public class PlayerController : MonoBehaviour
         Move();              //上下左右の入力値の取得
         angleZ = GetAngle(); //その時の角度を変数angleZに反映
         Animation();         //angleを利用してアニメーション
+
+        //足音
+        HandleFootsteps();
     }
 
     private void FixedUpdate()
@@ -174,6 +180,9 @@ public class PlayerController : MonoBehaviour
     {
         if (GameManager.gameState != GameState.playing) return;
 
+        SoundManager.instance.SEPlay(SEType.Damage); //ダメージを受ける音
+
+
         GameManager.playerHP--; //プレイヤーのHPを1減らす
 
         if(GameManager.playerHP > 0)
@@ -224,7 +233,7 @@ public class PlayerController : MonoBehaviour
         if(GameManager.hasSpotLight)spotLight.SetActive(true);
     }
 
-    //VirtualPaddの入力に反応するメソッド
+    //VirtualPadの入力に反応するメソッド
     public void SetAxis(float virH,float virV)
     {
         //どちらかの引数に値が入っていれば
@@ -237,6 +246,26 @@ public class PlayerController : MonoBehaviour
         else //virtualPadが触られていない（引数が両方0）
         {
             isViartual = false;
+        }
+    }
+
+    //足音
+    void HandleFootsteps()
+    {
+        //プレイヤーが動いていれば
+        if (axisH != 0 || axisV != 0)
+        {
+            footstepTimer += Time.deltaTime; //時間計測
+
+            if (footstepTimer >= footstepInterval) //インターバルチェック
+            {
+                SoundManager.instance.SEPlay(SEType.Walk);
+                footstepTimer = 0;
+            }
+        }
+        else //動いていなければ時間計測リセット
+        {
+            footstepTimer = 0f;
         }
     }
 }
