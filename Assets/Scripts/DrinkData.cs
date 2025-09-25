@@ -22,7 +22,7 @@ public class DrinkData : MonoBehaviour
             }
 
             //該当する識別番号を取得済み
-            GameManager.itemPickedState[itemNum] = true ;
+            GameManager.itemsPickedState[itemNum] = true ;
 
             //アイテム取得の演出
             GetComponent<CircleCollider2D>().enabled = false ;

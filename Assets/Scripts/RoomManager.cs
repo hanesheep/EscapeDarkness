@@ -36,6 +36,8 @@ public class RoomManager : MonoBehaviour
             LoadKeysPosition(); //キーの配置の再現
             LoadItemsPosition(); //アイテムは一の再現
             LoadDoorsPosition(); //ドアの配置の再現
+
+            PlayerPosition(); //プレイヤーの配置
         }
     }
 
@@ -276,7 +278,7 @@ public class RoomManager : MonoBehaviour
 
         for (int i = 0; i < items.Length; i++)
         {
-            if (!GameManager.itemPickedState[i])
+            if (!GameManager.itemsPickedState[i])
             {
 
                 //スポットの全チェック（ランダム値とスポット番号の一致）
@@ -349,6 +351,33 @@ public class RoomManager : MonoBehaviour
                 }
             }
             if (!match) Instantiate(dummyDoor, spots.transform.position, Quaternion.identity);
+        }
+    }
+    void PlayerPosition()
+    {
+        GameObject[] roomDatas = GameObject.FindGameObjectsWithTag("room");
+
+        foreach(GameObject room in roomDatas)
+        {
+            //それぞれのRoomDataスクリプトの情報を変数rに代入
+            RoomData r = room.GetComponent<RoomData>();
+
+            //取得してきたRoomの識別名が「今目標にしている行先」の識別名（static）と同じなら
+            if(r.roomName == toRoomNumber)
+            {
+                float posY = 1.5f; //最初は対象となるRoomの上座標
+                if(r.direction == DoorDirection.down)
+                {
+                    posY = -1.5f;
+                }
+                
+                //プレイヤーの位置を決める
+                player.transform.position = new Vector2(
+                    room.transform.position.x,
+                    room.transform.position.y + posY);
+                break; //目的のRoomが見つかって、チェックの必要性がなくなったので中断
+
+            }
         }
     }
 

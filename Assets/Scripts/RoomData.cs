@@ -14,13 +14,16 @@ public class RoomData : MonoBehaviour
     public string nextScene;　//シーン切り替え先
     public bool openedDoor;　　//ドアの開錠
     public DoorDirection direction;　//ぷれいやー配置時の位置
-    public MessageData message;
-    public GameObject door;
+    public MessageData message;　//トークデータ
+    public GameObject door;　//表示/非表示対象のドア情報
+
+    public bool isSavePoint; //セーブポイントに使われるスクリプトにするかどうか
 
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        //相手がプレイヤーかつ自分がセーブポイントでなければ
+        if (collision.gameObject.CompareTag("Player")&& !isSavePoint)
         {
             ChangeScene();
         }

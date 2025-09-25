@@ -69,7 +69,7 @@ public class DoorController : MonoBehaviour
                 {
                     GameManager.key1--;　//鍵の消耗
                     nextTalk = true;    //次のトーク展開をさせる
-                    GameManager.doorOpenState[0] = true; //記録用の施錠状況をtrue
+                    GameManager.doorsOpenedState[0] = true; //記録用の施錠状況をtrue
                 }
                 break;
             case "fromRoom2":
@@ -77,7 +77,7 @@ public class DoorController : MonoBehaviour
                 {
                     GameManager.key2--;　//鍵の消耗
                     nextTalk = true;    //次のトーク展開をさせる
-                    GameManager.doorOpenState[1] = true; //記録用の施錠状況をtrue
+                    GameManager.doorsOpenedState[1] = true; //記録用の施錠状況をtrue
                 }
                 break;
             case "fromRoom3":
@@ -85,7 +85,7 @@ public class DoorController : MonoBehaviour
                 {
                     GameManager.key3--;　//鍵の消耗
                     nextTalk = true;    //次のトーク展開をさせる
-                    GameManager.doorOpenState[2] = true; //記録用の施錠状況をtrue
+                    GameManager.doorsOpenedState[2] = true; //記録用の施錠状況をtrue
                 }
                 break;
         }

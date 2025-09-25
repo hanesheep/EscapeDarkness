@@ -15,7 +15,7 @@ public class EnemyController : MonoBehaviour
     Animator animator;          //Animator
 
     bool isActive = false;      //アクティブフラグ
-    public int arrangeId = 0;   //配置の識別に使う
+    //public int arrangeId = 0;   //配置の識別に使う
 
 
     public bool onBarrier; //バリアにあたっているか
@@ -89,8 +89,8 @@ public class EnemyController : MonoBehaviour
 
             animator.SetInteger("Direction", direction);
             // 移動するベクトルを作る
-            axisH = Mathf.Cos(rad) * speed;
-            axisV = Mathf.Sin(rad) * speed;
+            axisH = Mathf.Cos(rad);
+            axisV = Mathf.Sin(rad);
         }
 
     }
@@ -114,7 +114,7 @@ public class EnemyController : MonoBehaviour
         if (isActive)
         {
             // 移動
-            rbody.linearVelocity = new Vector2(axisH, axisV).normalized;
+            rbody.linearVelocity = new Vector2(axisH, axisV).normalized * speed;
         }
         else
         {

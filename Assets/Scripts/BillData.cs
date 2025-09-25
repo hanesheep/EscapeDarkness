@@ -17,7 +17,7 @@ public class BillData : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             GameManager.bill++;
-            GameManager.itemPickedState[itemNum] = true;
+            GameManager.itemsPickedState[itemNum] = true;
 
             //アイテム取得の演出
             //コライダーを無効化

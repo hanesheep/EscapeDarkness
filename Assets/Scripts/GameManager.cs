@@ -1,3 +1,5 @@
+using System.Collections;
+using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -21,7 +23,7 @@ public class GameManager : MonoBehaviour
     public static bool[] keysPickedState = { false, false, false };  //鍵の取得状況
 
     public static int bill = 10;
-    public static bool[] itemPickedState = { false, false, false, false, false, }; //アイテムの取得状況
+    public static bool[] itemsPickedState = { false, false, false, false, false, }; //アイテムの取得状況
 
     public static bool hasSpotLight;  //スポットライトを持っているかどうか
 
@@ -35,8 +37,16 @@ public class GameManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        if(gameState == GameState.gameover)
+        {
+            StartCoroutine(TitleBack());
+        }
+    }
+    IEnumerator TitleBack()
+    {
+        yield return new WaitForSeconds(5); //５秒待つ
+        SceneManager.LoadScene("Title"); //タイトルに戻る
     }
 }

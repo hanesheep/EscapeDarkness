@@ -21,6 +21,8 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D rbody;
     Animator anime;
 
+    bool isViartual; //VirtualPadを触っているかどうかの判断フラグ
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -39,8 +41,8 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //プレイ中でなければなにもしない
-        if (GameManager.gameState != GameState.playing) return;
+        //プレイ中orエンディング中でなければなにもしない
+        if (!(GameManager.gameState != GameState.playing || GameManager.gameState != GameState.ending)) return;
 
         Move();              //上下左右の入力値の取得
         angleZ = GetAngle(); //その時の角度を変数angleZに反映
@@ -49,8 +51,8 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //プレイ中でなければなにもしない
-        if (GameManager.gameState != GameState.playing) return;
+        //プレイ中orエンディング中でなければなにもしない
+        if (!(GameManager.gameState != GameState.playing || GameManager.gameState != GameState.ending)) return;
 
         //ダメージフラグが立っている間
         if (inDamage)
@@ -80,9 +82,12 @@ public class PlayerController : MonoBehaviour
     //上下左右の入力値の取得
     public void Move()
     {
-        //axisHとaxisVに入力情報を代入する
-        axisH = Input.GetAxisRaw("Horizontal");
-        axisV = Input.GetAxisRaw("Vertical");
+        if (!isViartual)
+        {
+            //axisHとaxisVに入力情報を代入する
+            axisH = Input.GetAxisRaw("Horizontal");
+            axisV = Input.GetAxisRaw("Vertical");
+        }
     }
 
     //その時のプレイヤーの角度を取得
@@ -211,5 +216,27 @@ public class PlayerController : MonoBehaviour
         anime.SetTrigger("dead");   //死亡アニメクリップの発動
         rbody.AddForce(new Vector2(0, 5), ForceMode2D.Impulse); //上に跳ね上げる
         Destroy(gameObject, 1.0f); //１秒後に存在を消去
+    }
+
+    //スポットライトの入手フラグが立っていたらライトをつける
+    public void SpotLightCheck()
+    {
+        if(GameManager.hasSpotLight)spotLight.SetActive(true);
+    }
+
+    //VirtualPaddの入力に反応するメソッド
+    public void SetAxis(float virH,float virV)
+    {
+        //どちらかの引数に値が入っていれば
+        if(virH !=0 || virV != 0)
+        {
+            isViartual = true;
+            axisH = virH;
+            axisV = virV;
+        }
+        else //virtualPadが触られていない（引数が両方0）
+        {
+            isViartual = false;
+        }
     }
 }
