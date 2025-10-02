@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 989
   m_ShowMode: 4
-  m_Title: Project
+  m_Title: Game
   m_RootView: {fileID: 3}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -146,7 +146,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 150}
   m_MaxSize: {x: 24288, y: 24288}
   vertical: 0
-  controlID: 137
+  controlID: 142
   draggingID: 0
 --- !u!114 &7
 MonoBehaviour:
@@ -252,7 +252,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 150}
   m_MaxSize: {x: 8096, y: 24288}
   vertical: 1
-  controlID: 138
+  controlID: 143
   draggingID: 0
 --- !u!114 &11
 MonoBehaviour:
@@ -491,7 +491,7 @@ MonoBehaviour:
       oldMaxSizes: 
       oldSplitSize: 0
     m_HorizontalSplitter:
-      ID: 13464
+      ID: 9825
       splitterInitialOffset: 0
       currentActiveSplitter: -1
       realSizes:
@@ -542,7 +542,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 24
+    y: 79
     width: 737
     height: 544
   m_SerializedDataModeController:
@@ -850,7 +850,7 @@ MonoBehaviour:
       sizeOverridden: 0
     - dockPosition: 1
       containerId: overlay-container--right
-      displayed: 1
+      displayed: 0
       id: Scene View/Tilemap Focus
       index: 5
       contents: '{"m_Layout":4,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":48.0,"y":48.0},"m_SnapOffsetDelta":{"x":0.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
@@ -1127,9 +1127,9 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_DebugDrawModesUseInteractiveLightBakingData: 0
   m_Position:
-    m_Target: {x: 649.59125, y: 351.43268, z: -5.5637136}
+    m_Target: {x: 661.0937, y: 377.1447, z: -6.8894925}
     speed: 2
-    m_Value: {x: 649.59125, y: 351.43268, z: -5.5637136}
+    m_Value: {x: 661.0937, y: 377.1447, z: -6.8894925}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1179,9 +1179,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 557.7888
+    m_Target: 690.3674
     speed: 2
-    m_Value: 557.7888
+    m_Value: 690.3674
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -1326,7 +1326,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 594
+    y: 649
     width: 737
     height: 337
   m_SerializedDataModeController:
@@ -1426,8 +1426,8 @@ MonoBehaviour:
     m_TextWithWhitespace: "Hierarchy\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 1
-    y: 24
+    x: 738
+    y: 79
     width: 494
     height: 360
   m_SerializedDataModeController:
@@ -1444,9 +1444,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
+      m_SelectedIDs: 28bf0000
       m_LastClickedID: 0
-      m_ExpandedIDs: 2254ffff5255ffff3c58ffffae5bffff105effff8e66ffff9c6bffffca7fffffc884ffffcea9ffff04aaffffaeaeffff8cc2ffff9ec2ffffa8c2ffff54c5ffffaed0ffffa8d2ffff08fbffff56c900005ec9000098c90000acc900003ae4000054e4000026eb000006ec00001aec0000
+      m_ExpandedIDs: 8673ffff6874ffff4877ffff169affff1aa1ffff5cacffff5cb1ffff50b3ffff16b6fffffab6ffff08fbffff76b50000b6c40000ccc40000eac90000eec90000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1492,8 +1492,8 @@ MonoBehaviour:
     m_TextWithWhitespace: "Project\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 1
-    y: 410
+    x: 738
+    y: 465
     width: 494
     height: 304
   m_SerializedDataModeController:
@@ -1535,9 +1535,9 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 40}
-    m_SelectedIDs: 64be0000
-    m_LastClickedID: 48740
-    m_ExpandedIDs: 0000000064bd000066bd000068bd0000
+    m_SelectedIDs: 14bf0000
+    m_LastClickedID: 48916
+    m_ExpandedIDs: 0000000064bd000066bd000068bd000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1645,8 +1645,8 @@ MonoBehaviour:
     m_TextWithWhitespace: "Inspector\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 1235
-    y: 24
+    x: 1234
+    y: 79
     width: 685
     height: 907
   m_SerializedDataModeController:
@@ -1775,7 +1775,7 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 51930
+  m_LastSelectedObjectID: -26090
 --- !u!114 &23
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -1797,8 +1797,8 @@ MonoBehaviour:
     m_TextWithWhitespace: "Console\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 1
-    y: 740
+    x: 738
+    y: 795
     width: 494
     height: 191
   m_SerializedDataModeController:
